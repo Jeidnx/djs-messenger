@@ -1,0 +1,18 @@
+{
+  "name": "djs-messenger",
+  "version": "1.0.0",
+  "description": "Discord bot interface to simplify sending and receiving DMs in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.hierdomain.de/Jeidnx/discord-bot.git"
+  },
+  "author": "Jeidnx",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.3.1"
+  }
+}
