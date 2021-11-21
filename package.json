@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.hierdomain.de/Jeidnx/discord-bot.git"
+    "url": "https://github.com/Jeidnx/djs-messenger"
   },
   "author": "Jeidnx",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "discord.js": "^13.3.1"
   }

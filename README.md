@@ -8,7 +8,7 @@ Respond to every DM with the same Message
 ```
 let dm = require("djs-messenger");
 
-dm.onMessage = (msg, reply) => {
+dm.onMessage = (msg, id, reply) => {
     reply(msg);
 };
 

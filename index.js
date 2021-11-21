@@ -27,7 +27,7 @@ client.on("messageCreate", (message) => {
         await message.author.dmChannel.send(msg);
     }
 
-   module.exports.onMessage(message.content, reply);
+   module.exports.onMessage(message.content, message.author.id, reply);
 })
 
 
