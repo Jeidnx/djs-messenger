@@ -1,6 +1,6 @@
 {
   "name": "djs-messenger",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Discord bot interface to simplify sending and receiving DMs in Javascript",
   "main": "index.js",
   "scripts": {
