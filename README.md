@@ -2,24 +2,30 @@
 
 Discord bot interface to simplify sending and receiving DMs in Javascript
 
+# Functions
+
+- Send a Message to a user by ID
+- Reply to direct messages
+- Greet users per DM when they join a server
+
 # Examples 
 
-Respond to every DM with the same Message
-```
+Reply to DM
+```javascript
 let dm = require("djs-messenger");
 
-dm.onMessage = (msg, id, reply) => {
-    reply(msg);
-};
-
-discord.login("Discord Token").then(client => {
+dm.login("Discord Token").then(client => {
     console.log("Logged in as", client.user.tag);
 })
+
+dm.onMessage = (msg, id, reply) => {
+    reply("Your message: " + msg);
+    reply("Your Discord Id is: " + id);
+};
 ```
 
 Send a Specific user a DM
-
-````
+````javascript
 let dm = require("djs-messenger");
 
 (async () => {
@@ -28,4 +34,17 @@ let dm = require("djs-messenger");
     })
     dm.sendMessage("Message here", "Discord user ID Here").catch(console.log);
 })()
+````
+
+Send user a DM after he joins a Server
+````javascript
+let dm = require("djs-messenger");
+
+dm.login("Discord Token").then(client => {
+    console.log("Logged in as", client.user.tag);
+})
+
+dm.onUserAdd = (name, id) => {
+    dm.sendMessage(`Hello ${name}, welcome to our server`, id);
+}
 ````

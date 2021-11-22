@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.DIRECT_MESSAGES], partials: ["CHANNEL"]});
+const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.DIRECT_MESSAGES, Discord.Intents.FLAGS.GUILD_MEMBERS], partials: ["CHANNEL"]});
 
 let logon = false;
 
@@ -9,10 +9,18 @@ let logon = false;
  */
 function onMessage(msg){}
 
+
+/**
+ *
+ * @param user Discord User Obj.
+ */
+function onUserAdd(user){}
+
 module.exports = {
     sendMessage: sendMessage,
     login: login,
-    onMessage: onMessage
+    onMessage: onMessage,
+    onUserAdd: onUserAdd,
 }
 
 client.on("warn", console.warn);
@@ -30,7 +38,9 @@ client.on("messageCreate", (message) => {
    module.exports.onMessage(message.content, message.author.id, reply);
 })
 
-
+client.on("guildMemberAdd", (member) => {
+    module.exports.onUserAdd(member.displayName, member.id,);
+})
 
 
 /**
