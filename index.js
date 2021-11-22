@@ -12,9 +12,10 @@ function onMessage(msg){}
 
 /**
  *
- * @param user Discord User Obj.
+ * @param name Discord name
+ * @param id Discord Id
  */
-function onUserAdd(user){}
+function onUserAdd(name, id){}
 
 module.exports = {
     sendMessage: sendMessage,
