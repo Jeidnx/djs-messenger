@@ -43,10 +43,13 @@ client.on("messageCreate", (message) => {
     function waitFor(seconds){
         return new Promise(async (resolve, reject) => {
             awaitingReply[message.author.id] = true;
+            const filter = i => {
+                return !i.author.bot;
+            }
             if(!message.author.dmChannel){
                 await message.author.createDM();
             }
-            message.author.dmChannel.awaitMessages({ max: 1, time: seconds * 100, errors: ['time'] }).then(collected => {
+            message.author.dmChannel.awaitMessages({filter, max: 1, time: seconds * 1000, errors: ['time'] }).then(collected => {
                 resolve(collected.entries().next().value[1].content);
                 delete awaitingReply[message.author.id];
             }).catch(() => {
@@ -67,8 +70,7 @@ client.on("messageCreate", (message) => {
         }
         await message.author.dmChannel.send(msg);
     }
-
-   module.exports.onMessage(message.content, message.author.id, reply, waitFor);
+    module.exports.onMessage(message.content, message.author.id, reply, waitFor);
 })
 
 client.on("guildMemberAdd", (member) => {
