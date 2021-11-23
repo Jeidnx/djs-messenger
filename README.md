@@ -48,3 +48,21 @@ dm.onUserAdd = (name, id) => {
     dm.sendMessage(`Hello ${name}, welcome to our server`, id);
 }
 ````
+
+Wait for a User to reply
+````javascript
+let dm = require("djs-messenger");
+
+dm.login("Discord Token").then(client => {
+    console.log("Logged in as", client.user.tag);
+})
+
+dm.onMessage = async (msg, id, send, wait) => {
+    await send("Please Respond: ");
+    wait(6).then((reply) => {
+        // Do whatever you want here
+    }).catch(() => {
+        // User didn't respond
+    });
+}
+````
